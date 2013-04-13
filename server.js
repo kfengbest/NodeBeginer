@@ -8,12 +8,15 @@ function start(route, handle){
 		var pathname = url.parse(request.url).pathname;
 		console.log(request.url);
 
-		route(handle, pathname);
+		var content = route(handle, pathname);
 
 		response.writeHead(200,{"Content-Type":"text/plain"});
 		response.write("Hello node.js");
 		response.write("\n url:" + request.url);
 		response.write("\n pathname:" + pathname);
+
+		response.write("\n");
+		response.write(content);
 		response.end();
 	}
 	
