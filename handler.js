@@ -46,6 +46,10 @@ function form1(response,postData){
 	'<textarea name="text" rows="20", cols="60"></textarea>' +
 	'<input type="submit" value="submit text" />' +
 	'</form>' +
+	'<form action="/showImage" enctype="multipart/form-data" method="post">' +
+	'<input type="file" name="uploadImage" />' + 
+	'<input type="submit" value="Upload iamge" />' +
+	'</form>'+
 	'</body>' +
 	'</html>';
 
