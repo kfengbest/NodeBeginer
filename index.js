@@ -9,6 +9,8 @@ handler["/upload"] = h.upload;
 handler["/find"] = h.find;
 handler["/form1"] = h.form1;
 handler["/showImage"] = h.showImage;
+handler["/bookapi"] = h.bookapi;
+
 
 s.start(r.route, handler);
 

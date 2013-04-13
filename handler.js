@@ -80,10 +80,25 @@ function showImage(response,request){
 
 }
 
+var books = {
+	"ISBN_1111": {"name":"node.js"}
+}
+
+function bookapi(response, request)
+{
+	console.log("bookapi was invoked");
+
+	response.writeHead(200,{"Content-Type":"application/json;charset=UTF-8"});
+	response.write(JSON.stringify(books));
+	response.end();
+}
+
 exports.start = start;
 exports.upload = upload;
 exports.find = find;
 exports.form1 = form1;
 exports.showImage = showImage;
+exports.bookapi = bookapi;
+
 
 
