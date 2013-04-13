@@ -1,7 +1,9 @@
 var url = require('url');
 var fs = require('fs');
-
+var qs = require('querystring');
 var express = require("express");
+
+
 var app = express(); 
 var port = 1337;
 
@@ -34,6 +36,22 @@ app.get('/signup', function(req,res){
 	var email = user.email;
 
 	res.send('dear ' + name + ' welcome to register using email: ' + email);
+});
+
+app.get('/postsignup', function(req,res){
+	var formNata = '';
+
+	req.on("data", function(data){
+		formData +=data;
+	});	
+
+	req.on("end",function(){
+		var user = qs.parse(formData);
+		var name = user.username;
+		var email = user.email;
+		
+		res.send('Response by POST ' + name + ' ' + email);
+	});
 });
 
 console.log("express server is starting listening to port " + port);

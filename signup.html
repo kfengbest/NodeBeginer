@@ -3,12 +3,26 @@
 	</head>
 
 	<body>
-		<h1> Signup using /signup </h1>
+		<h1> Signup using GET method </h1>
 		
 		<form id="signup" method="GET" action="http://localhost:1337/signup">
 			<label>name:</label> <input type="text" id="username" name="username" /> <br/>
 			<label>email:</label> <input type="text" id="email" name="email" /> <br/>
 			<input type="submit" value="signup" /> <br/>
 		</form>
+        
+        <form id="signup" method="GET" action="http://localhost:1337/signup">
+			<label>name:</label> <input type="text" id="username" name="username" /> <br/>
+			<label>email:</label> <input type="text" id="email" name="email" /> <br/>
+			<input type="submit" value="signup" /> <br/>
+		</form>
+        
+        <h1> Signup using POST method </h1>
+        <form id="signup" method="POST" action="http://localhost:1337/postsignup">
+			<label>name:</label> <input type="text" id="username" name="username" /> <br/>
+			<label>email:</label> <input type="text" id="email" name="email" /> <br/>
+			<input type="submit" value="signup" /> <br/>
+		</form>
+        
 	</body>
 </html>
