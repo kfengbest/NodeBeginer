@@ -1,6 +1,6 @@
 var exec = require("child_process").exec;
 
-function start(response){
+function start(response,postData){
 	console.log("/start was called");
 
 	var content = "empty";
@@ -12,15 +12,15 @@ function start(response){
 	});	
 }
 
-function upload(response){
+function upload(response,postData){
 	console.log("/upload was called");
 
 	response.writeHead(200, {"Content-Type":"text/plain"});
-	response.write("/upload was called");
+	response.write("You send: " + postData);
 	response.end();
 }
 
-function find(response){
+function find(response,postData){
 	console.log("/find was called");
 
 	exec("find /", 
@@ -32,7 +32,7 @@ function find(response){
 	});
 }
 
-function form1(response){
+function form1(response,postData){
 	console.log("/form1 was called.");
 
 	var body = '<html>' +
