@@ -1,3 +1,6 @@
+var url = require('url');
+var fs = require('fs');
+
 var express = require("express");
 var app = express(); 
 var port = 1337;
@@ -24,6 +27,14 @@ app.get('/tel/:number', function(req,res){
 	res.send('The request number are: ' + req.params.number);
 });
 
+app.get('/signup', function(req,res){
+	var urlData = url.parse(req.url,true);
+	var user = urlData.query;
+	var name = user.username;
+	var email = user.email;
+
+	res.send('dear ' + name + ' welcome to register using email: ' + email);
+});
 
 console.log("express server is starting listening to port " + port);
 
