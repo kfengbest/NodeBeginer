@@ -8,18 +8,21 @@ function start(route, handle){
 		var pathname = url.parse(request.url).pathname;
 		console.log(request.url);
 	
+		route(handle,pathname,response,request);
+
 		var postData = "";
 		var dataListener = function(postDataChunk){
 			postData += postDataChunk;
 			console.log("Received new post data");
 		}
 		var endListener = function(){
-			route(handle,pathname,response, postData);
+			//route(handle,pathname,response, postData);
 		}
 
-		request.setEncoding("utf8");
-		request.addListener("data", dataListener);
-		request.addListener("end", endListener);
+		
+		//request.setEncoding("utf8");
+		//request.addListener("data", dataListener);
+		//request.addListener("end", endListener);
 	}
 	
 	var server = http.createServer(onRequest);
