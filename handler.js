@@ -20,6 +20,19 @@ function upload(response){
 	response.end();
 }
 
+function find(response){
+	console.log("/find was called");
+
+	exec("find /", 
+		{timeout:10000, maxBuffer:20000*1024},
+		function(error, stdout, stderr){
+			response.writeHead(200, {"Content-Type":"text/plain"});
+			response.write(stdout);
+			response.end();
+	});
+}
+
 exports.start = start;
 exports.upload = upload;
+exports.find = find;
 
