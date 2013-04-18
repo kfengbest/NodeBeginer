@@ -9,7 +9,10 @@ function start(response,request){
 	var content = "empty";
 	exec("ls -lah", function(error, stdout, stderr){
 		content = stdout;
-		response.writeHead(200,{"Content-Type":"text/plain"});
+		response.writeHead(200,{"Content-Type":"text/plain",
+								"head1" : "head value1",
+								"head2" : "head value 2"
+								});
 		response.write(content);
 		response.end();
 	});	
